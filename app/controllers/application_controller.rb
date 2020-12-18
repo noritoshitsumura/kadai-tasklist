@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :require_user_logged_in, only: [:index, :show]
   
   include SessionsHelper
   
@@ -6,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_user_logged_in
     unless logged_in?
-      redirect_to login_url
+      redirect_to login_path
     end
   end
 end
