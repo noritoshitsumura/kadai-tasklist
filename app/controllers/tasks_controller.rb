@@ -4,9 +4,7 @@ class TasksController < ApplicationController
 
    
   def index
-    if logged_in?
-      @tasks = current_user.tasks.order(id: :asc)
-    end
+    @tasks = current_user.tasks.order(id: :asc)
   end
 
   def show
